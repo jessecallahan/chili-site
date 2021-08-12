@@ -1,15 +1,12 @@
 import React from 'react';
 
-class ChiliControl extends React.Component {
+class SpiceControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
     };
   }
-
-
-
 
   render() {
     return (
@@ -18,4 +15,4 @@ class ChiliControl extends React.Component {
   }
 }
 
-export default ChiliControl;
+export default SpiceControl;

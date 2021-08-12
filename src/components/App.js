@@ -1,13 +1,13 @@
 // import logo from './logo.svg';
 import React from 'react';
 import Header from './Header'
-import ChiliControl from './ChiliControl'
+import SpiceControl from './SpiceControl'
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <ChiliControl />
+      <SpiceControl />
     </React.Fragment>
   );
 }
