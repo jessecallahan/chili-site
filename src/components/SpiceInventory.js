@@ -6,23 +6,24 @@ function SpiceInventory(props) {
   return (
     <React.Fragment>
       {
-        props.spiceInventory.map((spice) =>
+        props.mainSpiceInventory.map((spice) =>
           <Spice name={spice.name}
-            heatLevel={spice.location}
-            description={spice.issue}
+            heatLevel={spice.heatLevel}
+            description={spice.description}
             planet={spice.planet}
-            cost={spice.cost}
+            price={spice.price}
             quantity={spice.quantity}
             id={spice.id}
             key={spice.id} />
         )
       }
+
     </React.Fragment>
   )
 }
 
 SpiceInventory.propTypes = {
-  spiceInventory: PropTypes.array
+  mainSpiceInventory: PropTypes.array
 }
 
 export default SpiceInventory

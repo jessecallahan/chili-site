@@ -13,7 +13,7 @@ function Header() {
     <div style={headerStyle}>
 
       <img style={headerStyle} src={chilliHeader} alt="header with chillis" />
-      <p>THE CHILLIES ARE GONNA GET US</p>
+      <p>The International Spice Station!</p>
 
     </div>
   );
