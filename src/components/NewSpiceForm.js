@@ -1,8 +1,9 @@
 import React from 'react';
 import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
+import ReusableForm from "./ReusableForm";
 
-function NewSpiceForm(props) {
+export default function NewSpiceForm(props) {
 
   function handleNewSpiceFormSubmission(event) {
     event.preventDefault();
@@ -11,15 +12,7 @@ function NewSpiceForm(props) {
 
   return (
     <React.Fragment>
-      <form onSubmit={handleNewSpiceFormSubmission}>
-        <input type='text' name='name' placeholder='Spice Name' />
-        <input type='number' name='heatLevel' placeholder='Heat Level' />
-        <input type='text' name='description' placeholder='Description' />
-        <input type='text' name='planet' placeholder='Planet' />
-        <input type='number' name='price' placeholder='Price' />
-        <input type='number' name='quantity' placeholder='Quantity' />
-        <button type='submit'>Add a Spice</button>
-      </form>
+      <ReusableForm formSubmissionHandler={handleNewSpiceFormSubmission} buttonText="Add the Spice" />
     </React.Fragment>
   );
 }
@@ -27,6 +20,3 @@ function NewSpiceForm(props) {
 NewSpiceForm.propTypes = {
   onNewSpiceCreation: PropTypes.func
 };
-
-export default NewSpiceForm;
-
