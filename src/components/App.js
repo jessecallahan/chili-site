@@ -7,7 +7,9 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <SpiceControl />
+      <h1><SpiceControl /></h1>
+
+
     </React.Fragment>
   );
 }

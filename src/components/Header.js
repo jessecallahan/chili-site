@@ -1,22 +1,39 @@
 import React from "react";
-import chilliHeader from "./../img/chili.png"
+import chilliHeader from "./../img/SpiceDepot.png"
 
 function Header() {
   const headerStyle = {
     // width: '100%',
-    border: 'solid red',
-    color: 'green',
-    size: '400'
+    size: '400',
+    fontFamily: 'spaceFont',
+    fontSize: 50,
+    color: 'red'
   }
 
   return (
     <div style={headerStyle}>
+      <div id="space">
+        <div className="stars"></div>
+        <div className="stars"></div>
+        <div className="stars"></div>
+        <div className="stars"></div>
+        <div className="stars"> </div>
 
-      <img style={headerStyle} src={chilliHeader} alt="header with chillis" />
-      <p>The International Spice Station!</p>
+      </div>
 
+
+      <div className="row">
+        <div className="column">  The international Spice Station!</div>
+
+
+        <div className="column"><img style={headerStyle} src={chilliHeader} alt="header with chillis" />
+        </div>
+
+
+      </div>
     </div>
   );
 }
 
 export default Header
+

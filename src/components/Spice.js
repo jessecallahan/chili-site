@@ -6,13 +6,11 @@ function Spice(props) {
     <React.Fragment>
       <div onClick={() => props.spiceSelected(props.id)}>
         <h2>{props.name}</h2>
-        <ul>
-          <li>Description: {props.description}</li>
-          <li>Heat Level: {props.heatLevel}</li>
-          <li>Origin Planet: {props.planet}</li>
-          <li>Price: ${props.price}</li>
-          <li>Quantity Available: {props.quantity}</li>
-        </ul>
+        <p><em>{props.description}</em></p>
+        <p>Heat Level: {props.heatLevel}</p>
+        <p>Origin Planet: {props.planet}</p>
+        <p>Price: ${props.price}</p>
+        <p>Quantity Available: {props.quantity}</p>
       </div>
     </React.Fragment>
   )
