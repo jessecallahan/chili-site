@@ -6,8 +6,8 @@ function Header() {
     // width: '100%',
     size: '400',
     fontFamily: 'spaceFont',
-    fontSize: 50,
-    color: 'red'
+    fontSize: 60,
+    color: 'yellow'
   }
 
   return (

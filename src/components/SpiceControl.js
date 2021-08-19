@@ -19,12 +19,14 @@ class SpiceControl extends React.Component {
           planet: "Nepulon",
           price: 100,
           quantity: 100,
+          moneyMade: 0,
           id: 1
         }
       ],
       selectedSpice: null,
       editButtonPressed: false,
-      pageVisible: "home"
+      pageVisible: "home",
+      buttonState: null
     };
   }
 
@@ -45,6 +47,14 @@ class SpiceControl extends React.Component {
       pageVisible: "manage"
     })
   }
+
+  handleBuySpice = (spice) => {
+    const newMasterSpiceInventory = this.state.masterSpiceInventory.filter(spice => spice.id !== this.state.selectedSpice.id).concat(spice)
+    this.setState({
+      masterSpiceInventory: newMasterSpiceInventory,
+      selectedSpice: spice
+    })
+  }
   handleSelectedSpice = (id) => {
     const newSelectedSpice = this.state.masterSpiceInventory.filter(spice => spice.id === id)[0]
     this.setState({ selectedSpice: newSelectedSpice })
@@ -58,6 +68,13 @@ class SpiceControl extends React.Component {
     })
   }
 
+  handlePriceThing = (int) => {
+    this.setState({
+      buttonState: <div className="saleprice">+${int}</div>
+    })
+  }
+
+
   handleEditSpiceCreation = (spice) => {
     const newMasterSpiceInventory = this.state.masterSpiceInventory.filter(spice => spice.id !== this.state.selectedSpice.id).concat(spice)
     this.setState({
@@ -70,6 +87,19 @@ class SpiceControl extends React.Component {
   }
   handleEditButton = () => {
     this.setState({ editButtonPressed: true })
+  }
+
+  handleHomeButton = () => {
+    this.setState({
+      pageVisible: "home",
+      selectedSpice: null,
+      editButtonPressed: false,
+      formVisibleOnPage: false
+    })
+  }
+
+  handleBuyerButtonClick = () => {
+    this.setState({ pageVisible: "customer" })
   }
 
   handleDeleteButton = (id) => {
@@ -94,7 +124,7 @@ class SpiceControl extends React.Component {
         currentlyVisibleState = <NewSpiceForm onNewSpiceCreation={this.handleNewSpiceCreation} />;
         buttonText = "Return to Spice Inventory";
       } else if (this.state.selectedSpice != null) {
-        currentlyVisibleState = <SpiceDetail spice={this.state.selectedSpice} editButtonClick={this.handleEditButton} deleteButtonClick={this.handleDeleteButton} buttonText="Edit Spice" buttonText1="Delete Spice" />
+        currentlyVisibleState = <SpiceDetail spice={this.state.selectedSpice} pageVisible={this.state.pageVisible} editButtonClick={this.handleEditButton} deleteButtonClick={this.handleDeleteButton} buttonText="Edit Spice" buttonText1="Delete Spice" />
         buttonText = "Return to Spice Inventory";
       }
       else {
@@ -105,14 +135,29 @@ class SpiceControl extends React.Component {
       return (
         <React.Fragment>
           {currentlyVisibleState}
-          <button onClick={this.handleButtonClick}>{buttonText}</button>
+          <p><button onClick={this.handleButtonClick}>{buttonText}</button></p>
+          <p><button onClick={this.handleHomeButton}>Go back Home</button></p>
         </React.Fragment>
       )
     }
 
-    // else if (this.state.pageVisible === "customer") {
-    //   ///customer side
-    // }
+    else if (this.state.pageVisible === "customer") {
+      if (this.state.selectedSpice != null) {
+        currentlyVisibleState = <SpiceDetail buttonState={this.state.buttonState} buttonStateFunc={this.handlePriceThing} spice={this.state.selectedSpice} buyButtonClick={this.handleBuySpice} pageVisible={this.state.pageVisible} buttonText="Buy Spice" />
+        buttonText = "Return to Spice Inventory";
+      }
+      else {
+        currentlyVisibleState = <SpiceInventory mainSpiceInventory={this.state.masterSpiceInventory} spiceSelected={this.handleSelectedSpice} />
+        buttonText = "Add Spice to Inventory";
+      }
+      return (
+        <React.Fragment>
+          {currentlyVisibleState}
+          <p> <button onClick={this.handleHomeButton}>Go back Home</button></p>
+        </React.Fragment>
+      )
+
+    }
 
 
 

@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("./img/1745055.jpg");
   background-color: black;
-  color: yellow;
+  color: lightgrey;
   margin-left: 100px;
   margin-top: 20px;
 }
@@ -140,3 +140,49 @@ margin: 0.4em auto;
   font-family: spaceFont;
   src: url(./font/Starjedi.ttf);
 }
+
+/* .saleprice {
+  color:green;
+  animation-delay: 2s;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+} */
+
+/* .saleprice {
+  opacity: 1;
+  animation: fade 2s linear;
+  color: greenyellow;
+}
+
+
+@keyframes fade {
+0%,100% { opacity: 0 }
+50% { opacity: 1 }
+} */
+
+/* .saleprice {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.saleprice {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+} */
+
+.saleprice {
+  animation: hideAnimation 0s ease-in 5s;
+  animation-fill-mode: forwards;
+  color: greenyellow
+}
+
+@keyframes hideAnimation {
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;  
+  }
+}
+

@@ -8,7 +8,7 @@ function EditSpiceForm(props) {
   const { spice } = props
   function handleEditSpiceFormSubmission(event) {
     event.preventDefault();
-    props.onEditSpice({ name: event.target.name.value, heatLevel: parseInt(event.target.heatLevel.value), description: event.target.description.value, planet: event.target.planet.value, price: parseInt(event.target.price.value), quantity: parseInt(event.target.quantity.value), id: spice.id })
+    props.onEditSpice({ name: event.target.name.value, heatLevel: parseInt(event.target.heatLevel.value), description: event.target.description.value, planet: event.target.planet.value, price: parseInt(event.target.price.value), quantity: parseInt(event.target.quantity.value), moneyMade: spice.moneyMade, id: spice.id })
   }
 
   return (
